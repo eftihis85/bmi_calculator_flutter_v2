@@ -5,8 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'icon_content.dart';
 import 'reusable_card.dart';
-import 'constants.dart';
+import 'package:bmi_calculator_flutter_v2/screens/constants.dart';
 import 'results_page.dart';
+import 'bottom_button.dart';
 
 enum Gender { notSet, male, female }
 Gender selectedGender = Gender.notSet;
@@ -224,19 +225,10 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
-            },
-            child: Container(
-              child: Text('Calcuate', style: kNumberTextStyle),
-              color: kBottomContainerColour,
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity, // <<----------------
-              height: kBottomContainerHight,
-            ),
-          )
+          BottomButton('CALCULATE', () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ResultsPage()));
+          })
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import 'package:bmi_calculator_flutter_v2/screens/constants.dart';
 
 class ReusableCardContentGender extends StatelessWidget {
   ReusableCardContentGender({required this.textMain, required this.iconMain});
