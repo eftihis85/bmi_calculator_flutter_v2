@@ -8,6 +8,7 @@ import 'reusable_card.dart';
 import 'package:bmi_calculator_flutter_v2/screens/constants.dart';
 import 'results_page.dart';
 import 'bottom_button.dart';
+import 'package:bmi_calculator_flutter_v2/screens/calculator_brain.dart';
 
 enum Gender { notSet, male, female }
 Gender selectedGender = Gender.notSet;
@@ -226,8 +227,16 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           BottomButton('CALCULATE', () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ResultsPage()));
+            CalculatorBrain calc =
+                CalculatorBrain(height: height, weight: weight);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ResultsPage(
+                          bmiResult: calc.calculateBMI(),
+                          interpretation: calc.getInterpretation(),
+                          resultText: calc.getResult(),
+                        )));
           })
         ],
       ),
